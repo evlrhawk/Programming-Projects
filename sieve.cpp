@@ -22,19 +22,19 @@ int getNumber()
 }
 
 //finds all prime numbers less than n
-void calcNumbers(vector<bool> &prime, int number)
+void calcNumbers(bool prime[], int number)
 {
-   for (int i = 0; i < number; ++i)
+   /*for (int i = 0; i < number; ++i)
    {
-      prime[i] = true;
-   }
+      prime.push_back(true);
+   }*/
 
    for (int i = 2; i < number; ++i)
    {
-      while(prime[i] == false && i < number)
+      /*while(prime[i] == false)
       {
          i++;
-      }
+      }*/
 
       for (int j = 2; i < number; ++j)
       {
@@ -52,8 +52,7 @@ int main()
     int count = 0;
     int number = getNumber();
 
-    vector<bool> prime;
-
+	bool * prime = new bool[number + 1];
     calcNumbers(prime, number);
 
     cout << "The prime numbers less than " << number << " are:" << endl;
@@ -72,4 +71,6 @@ int main()
          }
        }
     }
+
+	delete[] prime;
 }
